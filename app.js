@@ -37,12 +37,12 @@ const upload = multer({
 app.use(upload.any());
 
 // 静态资源
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/template')));
 app.use("/admin", express.static(path.join(__dirname, 'public/admin')));
-app.use(express.static(path.join(__dirname, 'public')));
 
 // 公共参数处理，以及token处理
-app.use('/api/*', require("./utils/param"));
+app.use('/api', require("./utils/param"));
 
 // 路由处理
 // 查询数据
@@ -55,6 +55,11 @@ app.use('/api/news', require("./routes/api/news"));
 app.use('/api/user', require("./routes/api/user"));
 app.use('/api/login', require("./routes/api/login"));
 app.use('/api/reg', require("./routes/api/reg"));
+
+// 静态路由处理
+
+
+// 登出前端消除token
 // app.use('/api/logout', require("./routes/api/logout"));
 
 // catch 404 and forward to error handler

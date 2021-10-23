@@ -5,10 +5,9 @@ router.get('/:newsname', async (req, res, next) => {
     // 遵循 RESTful方式查询ID详情
     if (req.paramList._id) {
         // 跳转目标接口
-        res.redirect(`/api/news/${req.params.newsname}/${req.paramList._id}`)
-        return;
+        return res.redirect(`/api/news/${req.params.newsname}/${req.paramList._id}`)
     }
-
+ 
     // 查询完整列表
     const {
         _page,

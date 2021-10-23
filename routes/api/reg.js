@@ -16,10 +16,12 @@ router.post('/', function (req, res, next) {
 
     // 之后可删除
     // 内容格式由前端来处理，不满足条件不该来到后端
-    (!username || !password) && res.send({
-        err: 1,
-        msg: "用户名和密码是必传参数"
-    });
+    if (!username || !password) {
+        return res.send({
+            err: 1,
+            msg: "用户名和密码是必传参数"
+        })
+    };
 
     // 密码加密
     password = bcrypt.hashSync(password);

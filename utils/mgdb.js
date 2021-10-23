@@ -20,8 +20,7 @@ const open = ({
     msg: "数据库连接失败"
 }) : reslove({
     collection: client.db(dbName).collection(collectionName),
-    client,
-    ObjectId
+    client
 }))));
 
 /**
@@ -100,3 +99,4 @@ const findDetail = ({
 exports.open = open;
 exports.findList = findList;
 exports.findDetail = findDetail;
+exports.ObjectId = ObjectId;
