@@ -2,6 +2,7 @@ module.exports = {
     _page: 0,         // 默认页数
     _limit: 10,       // 默认每页数量
     _sort: "time",    // 默认排序字段
+    _order: "asc",    // 默认升序排序
     q: '',            // 默认搜索关键字
     dbUrl: "mongodb://127.0.0.1:27017",  // 默认数据库连接地址
     dbName: "objdata",   // 默认查询库

@@ -18,6 +18,7 @@ app.use(express.urlencoded({
     extended: false
 }));
 
+// 设置文件上传路径
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         if (req.url.includes("reg")) {
@@ -40,16 +41,21 @@ app.use(express.static(path.join(__dirname, 'public/template')));
 app.use("/admin", express.static(path.join(__dirname, 'public/admin')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 路由处理
+// 公共参数处理，以及token处理
 app.use('/api/*', require("./utils/param"));
-app.use('/api/banner', require("./routes/api/banner"));
-app.use('/api/column', require("./routes/api/column"));
-app.use('/api/follow', require("./routes/api/follow"));
-app.use('/api/home', require("./routes/api/home"));
-app.use('/api/login', require("./routes/api/login"));
-app.use('/api/logout', require("./routes/api/logout"));
-app.use('/api/reg', require("./routes/api/reg"));
+
+// 路由处理
+// 查询数据
+app.use('/api/news', require("./routes/api/news"));
+// app.use('/api/banner', require("./routes/api/banner"));
+// app.use('/api/column', require("./routes/api/column"));
+// app.use('/api/follow', require("./routes/api/follow"));
+// app.use('/api/home', require("./routes/api/home"));
+
 app.use('/api/user', require("./routes/api/user"));
+app.use('/api/login', require("./routes/api/login"));
+app.use('/api/reg', require("./routes/api/reg"));
+// app.use('/api/logout', require("./routes/api/logout"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
