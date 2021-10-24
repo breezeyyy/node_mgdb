@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
             ...res1.data,
             from: "column"
         });
-    })
+    }).catch(err => res.send(err));
 });
 
 module.exports = router;

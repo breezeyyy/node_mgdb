@@ -19,6 +19,8 @@
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="src/assets/css/base.css">
     <link rel="stylesheet" href="src/assets/css/mydoc.css">
+    <script src="src/assets/js/jquery-1.7.2.js"></script>
+    <script src="src/assets/js/cookie.js"></script>
     <script src="src/assets/js/font.js"></script>
 </head>
 
@@ -27,16 +29,16 @@
         <div class="header">
             <h2><img src="src/assets/img/headimg.png" alt="" /></h2>
             <div class="user-box">
-                <a href="/login">登录</a>
-                <a href="/reg">注册</a>
+                <p><%= data.nikename %> </p>
+                <a href="javascript:;" class="logout">&nbsp;退出</a>
             </div>
             <ul class="clear">
                 <li>
-                    <span>0</span>
+                    <span><%= data.follow %> </span>
                     <p>关注</p>
                 </li>
                 <li>
-                    <span>0</span>
+                    <span><%= data.fans %> </span>
                     <p class="end">粉丝</p>
                 </li>
             </ul>
@@ -47,29 +49,29 @@
                     <i></i>
                     <p>公开博文</p>
                     <b></b>
-                    <span>0</span>
+                    <span><%= data.pubArt %> </span>
                 </li>
                 <li class="mm-text">
                     <i></i>
                     <p>秘密博文</p>
                     <b></b>
-                    <span>0</span>
+                    <span><%= data.priArt %> </span>
                 </li>
                 <li class="cg-text">
                     <i></i>
                     <p>草稿箱</p>
                     <b></b>
-                    <span>0</span>
+                    <span><%= data.draArt %> </span>
                 </li>
                 <li class="sc-text">
                     <i></i>
                     <p>收藏夹</p>
                     <b></b>
-                    <span>0</span>
+                    <span><%= data.favorite %> </span>
                 </li>
                 <li class="my_cz">
                     <i></i>
-                    <p>收藏夹</p>
+                    <p>设置</p>
                 </li>
             </ul>
         </div>
@@ -83,5 +85,13 @@
         </ul>
     </div>
 </body>
+<script>
+    $(".logout").on("click", () => {
+        setCookie("token", "", {
+            expires: 36500
+        })
+        location.href = "/login";
+    })
+</script>
 
 </html>

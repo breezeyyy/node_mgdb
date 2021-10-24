@@ -2,10 +2,11 @@ const router = require('express').Router();
 const mgdb = require("../../utils/mgdb");
 
 router.get('/', async (req, res, next) => {
+    const _id = req.query._id || req.paramList.decode._id;
     try {
         const result = await mgdb.findDetail({
             collectionName: "user",
-            _id: mgdb.ObjectId(req.query._id)
+            _id
         });
         delete result.data.username;
         delete result.data.password;

@@ -9,6 +9,7 @@ router.post('/', function (req, res, next) {
         password
     } = req.paramList;
 
+    console.log(req.paramList);
     // 之后可删除
     // 内容格式由前端来处理，不满足条件不该来到后端
     if (!username || !password) {
