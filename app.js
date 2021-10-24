@@ -53,12 +53,8 @@ app.use('/api/login', require("./routes/api/login"));
 app.use('/api/reg', require("./routes/api/reg"));
 
 // 静态路由处理
-// app.use('/template', require("./routes/render/template"));
 app.use('/admin', require("./routes/render/admin"))
 app.use('/', require("./routes/render/template"));
-
-// 登出前端消除token
-// app.use('/api/logout', require("./routes/api/logout"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
