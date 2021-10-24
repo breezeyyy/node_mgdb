@@ -47,17 +47,15 @@ app.use('/api', require("./utils/param"));
 // 路由处理
 // 查询数据
 app.use('/api/news', require("./routes/api/news"));
-// app.use('/api/banner', require("./routes/api/banner"));
-// app.use('/api/column', require("./routes/api/column"));
-// app.use('/api/follow', require("./routes/api/follow"));
-// app.use('/api/home', require("./routes/api/home"));
 
 app.use('/api/user', require("./routes/api/user"));
 app.use('/api/login', require("./routes/api/login"));
 app.use('/api/reg', require("./routes/api/reg"));
 
 // 静态路由处理
-
+// app.use('/template', require("./routes/render/template"));
+app.use('/admin', require("./routes/render/admin"))
+app.use('/', require("./routes/render/template"));
 
 // 登出前端消除token
 // app.use('/api/logout', require("./routes/api/logout"));

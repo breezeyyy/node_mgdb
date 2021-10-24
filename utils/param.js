@@ -18,9 +18,7 @@ module.exports = (req, res, next) => {
     // console.log(req.paramList);
 
     // 登录/注册/登出 不需要验证token
-    if (/login|reg|logout/.test(req.url)) {
-        next();
-    } else {
+    if (/user/.test(req.url)) {
         try {
             req.paramList.decode = jwt.verify(req.paramList.token);
             next();
@@ -30,5 +28,7 @@ module.exports = (req, res, next) => {
                 msg: "登录已过期，请重新登录"
             })
         }
+    } else {
+        next();
     }
 }

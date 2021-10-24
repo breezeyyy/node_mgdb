@@ -54,7 +54,7 @@ const findList = ({
         [_sort]: _order === "asc" ? 1 : -1
     },
     skip: _page * _limit,
-    limit: _limit
+    limit: _limit - 0
 }).toArray((err, data) => {
     err && data.length > 0 ? reject({
         err: 1,

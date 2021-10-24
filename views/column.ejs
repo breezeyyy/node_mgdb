@@ -19,43 +19,34 @@
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="src/assets/css/base.css">
     <link rel="stylesheet" href="src/assets/css/index.css">
-    <script src="src/assets/js/swipe.js"></script>
-    <script src="src/assets/js/jquery-1.7.2.js"></script>
     <script src="src/assets/js/font.js"></script>
+    <style>
+        .newsList {
+            clear: both;
+            margin-bottom: 1rem;
+            margin-top: .7rem;
+        }
+    </style>
 </head>
 
 <body>
     <!--头部-->
     <div class="nav">
         <ul>
-            <li class="active"><a href="/">首页</a></li>
+            <li><a href="/">首页</a></li>
             <li><a href="/follow">关注</a></li>
-            <li><a href="/column">栏目</a></li>
+            <li class="active"><a href="/column">栏目</a></li>
         </ul>
     </div>
-    <!--banner-->
-    <div class="banner">
-        <ul class="clearfix">
-            <% for( let i = 0; i < banner.length; i++ ) { %>
-            <li>
-                <img src="<%= banner[i].banner %> " alt="">
-                <div class="text-box">
-                    <h2><%= banner[i].title %> </h2>
-                    <p><%= banner[i].detail.auth %> /文</p>
-                </div>
-            </li>
-            <% } %>
-        </ul>
 
-    </div>
-    <!--home列表-->
+    <!--column列表-->
     <div class="newsList">
         <ul>
-            <% for( let i = 0; i < home.length; i++ ) { %>
+            <% for( let i = 0; i < data.length; i++ ) { %>
             <li>
-                <a href="/article?from=<%= from %>&_id=<%= home[i]._id %> ">
-                    <h2><%= home[i].title %> </h2>
-                    <p><%= home[i].des %> </p>
+                <a href="/article?from=<%= from %>&_id=<%= data[i]._id %> ">
+                    <h2><%= data[i].title %> </h2>
+                    <p><%= data[i].des %> </p>
                 </a>
             </li>
             <% } %>
@@ -69,17 +60,6 @@
             <li class="my"><a href="/mydoc"></a></li>
         </ul>
     </div>
-    <script>
-        var mySwipe = new Swipe($('.banner')[0], {
-            auto: 2000,
-            continuous: true,
-            stopPropation: true,
-            callback: function (index, element) {
-                $('.banner ol li').removeClass('active');
-                $('.banner ol li').eq(index).addClass('active');
-            }
-        })
-    </script>
 </body>
 
 </html>
