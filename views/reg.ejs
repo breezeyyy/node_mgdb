@@ -19,6 +19,8 @@
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="src/assets/css/base.css">
     <script src="src/assets/js/font.js"></script>
+    <script src="src/assets/js/jquery-1.7.2.js"></script>
+    <script src="src/assets/js/cookie.js"></script>
     <style>
         body {
             background: #f2f4f5;
@@ -186,11 +188,30 @@
             </li>
         </ul>
         <div class="footbox">
-            <input type="button" value="注 册" class="login-btn" />
+            <input type="button" value="注册并登录" class="login-btn" />
             <a href="javascript:;" class="tishi">忘记密码？</a>
         </div>
     </div>
 
 </body>
+<script>
+    $(".login-btn").on("click", () => {
+        $.ajax({
+            url: "http://localhost:3000/api/reg",
+            type: "POST",
+            success: res => {
+                if (res.err) {
+                    alert(res.msg);
+                } else {
+                    setCookie("token", res.data.token, {
+                        expires: 2
+                    });
+                    location.href = `/mydoc?_id=${res.data._id}`;
+                }
+            },
+            data: `username=${$("input").eq(1).val()}&password=${$("input").eq(2).val()}`
+        })
+    })
+</script>
 
 </html>
