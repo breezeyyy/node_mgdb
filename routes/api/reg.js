@@ -21,7 +21,7 @@ router.post('/', function (req, res, next) {
             err: 1,
             msg: "用户名和密码是必传参数"
         })
-    };
+    }
 
     // 密码加密
     password = bcrypt.hashSync(password);
@@ -29,6 +29,7 @@ router.post('/', function (req, res, next) {
     nikename = nikename ? nikename : randomName();
     // 默认头像
     let icon = "/upload/default.jpeg";
+    // console.log('file', req.files)
 
     if (req.files && req.files.length) {
         // 磁盘路径头像重命名

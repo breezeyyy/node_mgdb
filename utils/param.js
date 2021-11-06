@@ -8,6 +8,7 @@ module.exports = (req, res, next) => {
         ...req.query,
         ...req.body
     }
+    // console.log('body', req.body)
     // 初始化参数
     req.paramList._page = req.paramList._page || initParams._page;
     req.paramList._limit = req.paramList._limit || initParams._limit;
