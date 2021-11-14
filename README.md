@@ -3,10 +3,10 @@
 
 ## 目录
   - [目录](#目录)
+    - [部署](#部署)
     - [开发前的配置要求](#开发前的配置要求)
     - [**安装步骤**](#安装步骤)
     - [快速入门](#快速入门)
-    - [部署](#部署)
     - [使用到的框架](#使用到的框架)
     - [如何参与开源项目](#如何参与开源项目)
     - [版本控制](#版本控制)
@@ -14,11 +14,15 @@
     - [版权说明](#版权说明)
 
 
+### 部署
+
+- 在线演示地址：[客户端](http://101.35.125.222)
+- 在线演示地址：[管理端](http://101.35.125.222/admin)
+
 ### 开发前的配置要求
 
-- Node 14或以上版本
-  - 使用的第三方node模块请查阅package.json
-- jQuery 1.0以上版本
+- Node 14或以上，vue2
+- 使用的第三方node模块请查阅package.json
   
 ### **安装步骤**
 
@@ -27,16 +31,14 @@
 ### 快速入门
 
 - 安装依赖：`npm install`
-- 执行`npm start`，浏览器访问地址：http://localhost:3000
+- 执行`npm start`，
+  - [客户端](http://localhost)
+  - [管理端](http://localhost/admin)
 
-
-### 部署
-
-暂无
 
 ### 使用到的框架
 
-暂无
+vue2
 
 ### 如何参与开源项目
 
@@ -79,6 +81,3 @@ qq:2806626008
 [license-shield]: https://img.shields.io/github/license/breezeyyy/node_mgdb.svg?style=flat-square
 [license-url]: https://github.com/breezeyyy/node_mgdb/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-
-
-
