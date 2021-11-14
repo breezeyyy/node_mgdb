@@ -5,7 +5,9 @@ module.exports = {
     _limit: 10,       // 默认每页数量
     _sort: "time",    // 默认排序字段
     _order: "asc",    // 默认升序排序
+    qSearch: 'nikename', // 默认检索字段名
     q: '',            // 默认搜索关键字
+    update: null,     // 更新的字段内容
     dbUrl: "mongodb://127.0.0.1:27017",  // 默认数据库连接地址
     dbName: "objdata",   // 默认查询库
     pathPublic: "public",  // 静态资源根

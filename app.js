@@ -1,7 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const jwt = require("jsonwebtoken");
 const logger = require('morgan');
 const multer = require("multer");
 const initParams = require("./config/global");
@@ -52,9 +51,9 @@ app.use('/api/user', require("./routes/api/user"));
 app.use('/api/login', require("./routes/api/login"));
 app.use('/api/reg', require("./routes/api/reg"));
 
-// 静态路由处理
-app.use('/admin', require("./routes/render/admin"))
-app.use('/', require("./routes/render/template"));
+app.use("/api/delete", require("./routes/api/delete"));
+app.use("/api/audit", require("./routes/api/audit"));
+app.use("/api/count", require("./routes/api/count"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -68,8 +67,16 @@ app.use(function (err, req, res, next) {
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+    if(req.url.includes('/api')){//webApi接口错误
+        res.send({
+            err:1,
+            msg:'不存在的接口名'
+        })
+    }else if(req.url.includes('/admin')){//服务端Api接口错误
+        res.render('error');
+    }else{//交还给客户端判断
+        res.sendFile(path.join(__dirname, 'public','template', 'index.html'));
+    }
 });
 
 module.exports = app;

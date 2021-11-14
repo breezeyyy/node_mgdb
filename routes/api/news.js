@@ -14,7 +14,8 @@ router.get('/:newsname', async (req, res, next) => {
         _limit,
         _sort,
         _order,
-        q
+        q,
+        qSearch,
     } = req.paramList;
     try {
         res.send(await mgdb.findList({
@@ -23,7 +24,8 @@ router.get('/:newsname', async (req, res, next) => {
             _limit,
             _sort,
             _order,
-            q
+            q,
+            qSearch,
         }))
     } catch (error) {
         console.log(error);
